@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Tasks</title>
+  </head>
+  <body>
+    <h1>JavaScript Tasks</h1>
+    <div id="output"></div>
+
+    <script>
+      const output = document.getElementById("output");
+
+      // 1. Print numbers from 1 to 10
+      let numbers1To10 = "";
+      for (let i = 1; i <= 10; i++) {
+        numbers1To10 += i + " ";
+      }
+      output.innerHTML += `<p><strong>1. Numbers from 1 to 10:</strong> ${numbers1To10}</p>`;
+
+      // 2. Print the odd numbers less than 100
+      let oddNumbers = "";
+      for (let i = 1; i < 100; i++) {
+        oddNumbers += i + " ";
+      }
+      output.innerHTML += `<p><strong>2. Odd numbers less than 100:</strong> ${oddNumbers}</p>`;
+
+      // 3. Print the multiplication table with 7
+      let multiplicationTable7 = "";
+      for (let i = 1; i <= 10; i++) {
+        multiplicationTable7 += `7 x ${i} = ${7 * i}<br>`;
+      }
+      output.innerHTML += `<p><strong>3. Multiplication table with 7:</strong><br>${multiplicationTable7}</p>`;
+
+      // 4. Print all the multiplication tables with numbers from 1 to 10
+      let allMultiplicationTables = "";
+      for (let i = 1; i <= 10; i++) {
+        for (let j = 1; j <= 10; j++) {
+          allMultiplicationTables += `${i} x ${j} = ${i * j}<br>`;
+        }
+        allMultiplicationTables += "<br>";
+      }
+      output.innerHTML += `<p><strong>4. All multiplication tables from 1 to 10:</strong><br>${allMultiplicationTables}</p>`;
+
+      // 5. Calculate the sum of numbers from 1 to 10
+      let sum1To10 = 0;
+      for (let i = 1; i <= 10; i++) {
+        sum1To10 += i;
+      }
+      output.innerHTML += `<p><strong>5. Sum of numbers from 1 to 10:</strong> ${sum1To10}</p>`;
+
+      // 6. Calculate 10!
+      let factorial10 = 1;
+      for (let i = 1; i <= 10; i++) {
+        factorial10 *= i;
+      }
+      output.innerHTML += `<p><strong>6. 10! (factorial of 10):</strong> ${factorial10}</p>`;
+
+      // 7. Calculate the sum of even numbers greater than 10 and less than 30
+      let sumEvenNumbers = 0;
+      for (let i = 12; i < 30; i += 2) {
+        sumEvenNumbers += i;
+      }
+      output.innerHTML += `<p><strong>7. Sum of even numbers greater than 10 and less than 30:</strong> ${sumEvenNumbers}</p>`;
+
+      // 8. Create a function that will convert from Celsius to Fahrenheit
+      function celsiusToFahrenheit(celsius) {
+        return (celsius * 9) / 5 + 32;
+      }
+      output.innerHTML += `<p><strong>8. Celsius to Fahrenheit:</strong> 0°C = ${celsiusToFahrenheit(
+        0
+      )}°F, 100°C = ${celsiusToFahrenheit(100)}°F</p>`;
+
+      // 9. Create a function that will convert from Fahrenheit to Celsius
+      function fahrenheitToCelsius(fahrenheit) {
+        return ((fahrenheit - 32) * 5) / 9;
+      }
+      output.innerHTML += `<p><strong>9. Fahrenheit to Celsius:</strong> 32°F = ${fahrenheitToCelsius(
+        32
+      )}°C, 212°F = ${fahrenheitToCelsius(212)}°C</p>`;
+
+      // 10. Calculate the sum of numbers in an array of numbers
+      function sumArray(numbers) {
+        let sum = 0;
+        for (let number of numbers) {
+          sum += number;
+        }
+        return sum;
+      }
+      let arrayNumbers = [1, 2, 3, 4, 5];
+      output.innerHTML += `<p><strong>10. Sum of array [1, 2, 3, 4, 5]:</strong> ${sumArray(
+        arrayNumbers
+      )}</p>`;
+
+      // 11. Calculate the average of the numbers in an array of numbers
+      function averageArray(numbers) {
+        return sumArray(numbers) / numbers.length;
+      }
+      output.innerHTML += `<p><strong>11. Average of array [1, 2, 3, 4, 5]:</strong> ${averageArray(
+        arrayNumbers
+      )}</p>`;
+
+      // 12. Create a function that receives an array of numbers as argument and returns an array containing only the positive numbers
+      function positiveNumbers(numbers) {
+        return numbers.filter((number) => number > 0);
+      }
+      let mixedNumbers = [-1, 2, -3, 4, 5];
+      output.innerHTML += `<p><strong>12. Positive numbers from [-1, 2, -3, 4, 5]:</strong> ${positiveNumbers(
+        mixedNumbers
+      ).join(", ")}</p>`;
+
+      // 13. Find the maximum number in an array of numbers
+      function maxNumber(numbers) {
+        return Math.max(...numbers);
+      }
+      output.innerHTML += `<p><strong>13. Maximum number in array [1, 2, 3, 4, 5]:</strong> ${maxNumber(
+        arrayNumbers
+      )}</p>`;
+
+      // 14. Print the first 10 Fibonacci numbers without recursion
+      function firstTenFibonacci() {
+        let fib = [0, 1];
+        for (let i = 2; i < 10; i++) {
+          fib[i] = fib[i - 1] + fib[i - 2];
+        }
+        return fib;
+      }
+
+      output.innerHTML += `<p><strong>14. First 10 Fibonacci numbers:</strong> ${firstTenFibonacci().join(
+        ", "
+      )}</p>`;
+
+      // 15. Create a function that will find the nth Fibonacci number using recursion
+      function fibonacci(n) {
+        if (n <= 1) return n;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+      }
+      let nthFib = 7; // Example to find 7th Fibonacci number
+      output.innerHTML += `<p><strong>15. ${nthFib}th Fibonacci number using recursion:</strong> ${fibonacci(
+        nthFib
+      )}</p>`;
+
+      // 16. Create a function that will return a Boolean specifying if a number is prime
+      function isPrime(num) {
+        if (num <= 1) return false;
+        for (let i = 2; i < num; i++) {
+          if (num % i === 0) return false;
+        }
+        return true;
+      }
+      let primeCheck = 29;
+      output.innerHTML += `<p><strong>16. Is ${primeCheck} a prime number?</strong> ${isPrime(
+        primeCheck
+      )}</p>`;
+      // 17. Calculate the sum of digits of a positive integer number
+      function sumOfDigits(number) {
+        return number
+          .toString()
+          .split("")
+          .map(Number)
+          .reduce((acc, digit) => acc + digit, 0);
+      }
+      let number = 12345;
+      output.innerHTML += `<p><strong>17. Sum of digits of ${number}:</strong> ${sumOfDigits(
+        number
+      )}</p>`;
+
+      // 18. Print the first 100 prime numbers
+      function firstNPrimes(n) {
+        let primes = [];
+        let num = 2;
+        while (primes.length < n) {
+          if (isPrime(num)) primes.push(num);
+          num++;
+        }
+        return primes;
+      }
+      output.innerHTML += `<p><strong>18. First 100 prime numbers:</strong> ${firstNPrimes(
+        100
+      ).join(", ")}</p>`;
+
+      // 19. Create a function that will return in an array the first “p” prime numbers greater than “n”
+      function primesGreaterThanN(p, n) {
+        let primes = [];
+        let num = n + 1;
+        while (primes.length < p) {
+          if (isPrime(num)) primes.push(num);
+          num++;
+        }
+        return primes;
+      }
+      let p = 5,
+        n = 10;
+      output.innerHTML += `<p><strong>19. First ${p} prime numbers greater than ${n}:</strong> ${primesGreaterThanN(
+        p,
+        n
+      ).join(", ")}</p>`;
+
+      // 20. Rotate an array to the left 1 position
+      function rotateLeft(arr) {
+        arr.push(arr.shift());
+        return arr;
+      }
+      let arrayToRotateLeft = [1, 2, 3, 4, 5];
+      output.innerHTML += `<p><strong>20. Rotate array [1, 2, 3, 4, 5] to the left 1 position:</strong> ${rotateLeft(
+        [...arrayToRotateLeft]
+      ).join(", ")}</p>`;
+
+      // 21. Rotate an array to the right 1 position
+      function rotateRight(arr) {
+        arr.unshift(arr.pop());
+        return arr;
+      }
+      let arrayToRotateRight = [1, 2, 3, 4, 5];
+      output.innerHTML += `<p><strong>21. Rotate array [1, 2, 3, 4, 5] to the right 1 position:</strong> ${rotateRight(
+        [...arrayToRotateRight]
+      ).join(", ")}</p>`;
+
+      // 22. Reverse an array
+      function reverseArray(arr) {
+        return arr.reverse();
+      }
+      let arrayToReverse = [1, 2, 3, 4, 5];
+      output.innerHTML += `<p><strong>22. Reverse array [1, 2, 3, 4, 5]:</strong> ${reverseArray(
+        [...arrayToReverse]
+      ).join(", ")}</p>`;
+
+      // 23. Reverse a string
+      function reverseString(str) {
+        return str.split("").reverse().join("");
+      }
+      let stringToReverse = "hello";
+      output.innerHTML += `<p><strong>23. Reverse string "hello":</strong> ${reverseString(
+        stringToReverse
+      )}</p>`;
+
+      // function to check if a number is prime
+      function isPrime(num) {
+        if (num <= 1) return false;
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+          if (num % i === 0) return false;
+        }
+        return true;
+      }
+
+      // 24. Create a function that will merge two arrays and return the result as a new array
+      function mergeArrays(arr1, arr2) {
+        return [...arr1, ...arr2];
+      }
+      let array1 = [1, 2, 3];
+      let array2 = [4, 5, 6];
+      output.innerHTML += `<p><strong>24. Merged arrays [1, 2, 3] and [4, 5, 6]:</strong> ${mergeArrays(
+        array1,
+        array2
+      ).join(", ")}</p>`;
+
+      // 25. Create a function that will receive two arrays of numbers and return an array composed of all the numbers that are either in the first array or second array but not in both
+      function arrayDiff(arr1, arr2) {
+        return [
+          ...arr1.filter((num) => !arr2.includes(num)),
+          ...arr2.filter((num) => !arr1.includes(num)),
+        ];
+      }
+      let array3 = [1, 2, 3, 4];
+      let array4 = [3, 4, 5, 6];
+      output.innerHTML += `<p><strong>25. Numbers in either [1, 2, 3, 4] or [3, 4, 5, 6] but not in both:</strong> ${arrayDiff(
+        array3,
+        array4
+      ).join(", ")}</p>`;
+
+      // 26. Create a function that will receive two arrays and will return an array with elements that are in the first array but not in the second
+      function arrayUnique(arr1, arr2) {
+        return arr1.filter((num) => !arr2.includes(num));
+      }
+      output.innerHTML += `<p><strong>26. Elements in [1, 2, 3, 4] but not in [3, 4, 5, 6]:</strong> ${arrayUnique(
+        array3,
+        array4
+      ).join(", ")}</p>`;
+    </script>
+  </body>
+</html>
